@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zakariya | GTA Intro</title>
+    <title>Zakariya | Developer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -9,32 +9,133 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:Arial, sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body{
-            background:black;
-            overflow:hidden;
+            background: linear-gradient(-45deg, #000000, #1a1a1a, #0f2027, #000000);
+            background-size: 400% 400%;
+            animation: bgAnimation 10s ease infinite;
             color:white;
+            text-align:center;
         }
 
-        /* Intro Screen */
-        .intro{
-            position:fixed;
-            width:100%;
-            height:100vh;
-            background:black;
+        @keyframes bgAnimation{
+            0%{background-position:0% 50%;}
+            50%{background-position:100% 50%;}
+            100%{background-position:0% 50%;}
+        }
+
+        .container{
+            padding:50px 20px;
+        }
+
+        h1{
+            font-size:40px;
+            color:#00ffcc;
+            text-shadow:0 0 20px #00ffcc;
+        }
+
+        p{
+            margin-top:10px;
+            font-size:18px;
+            opacity:0.8;
+        }
+
+        .btn{
+            margin-top:25px;
+            padding:15px 30px;
+            font-size:18px;
+            border:none;
+            border-radius:30px;
+            cursor:pointer;
+            background:#00ffcc;
+            color:black;
+            box-shadow:0 0 20px #00ffcc;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:white;
+            box-shadow:0 0 40px white;
+            transform:scale(1.1);
+        }
+
+        .section{
+            margin-top:60px;
+        }
+
+        .skills, .projects{
             display:flex;
+            flex-wrap:wrap;
             justify-content:center;
-            align-items:center;
-            flex-direction:column;
-            z-index:10;
-            animation: fadeOut 2s ease 6s forwards;
+            gap:20px;
+            margin-top:20px;
         }
 
-        .logo{
-            font-size:50px;
-            letter-spacing:5px;
+        .card{
+            background:#111;
+            padding:20px;
+            border-radius:15px;
+            width:250px;
+            box-shadow:0 0 15px #00ffcc33;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 0 25px #00ffcc;
+        }
+
+        footer{
+            margin-top:80px;
+            padding:20px;
+            opacity:0.6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Zakariya 🚀</h1>
+        <p>Future GTA-Style Game Developer | Web Developer | Tech Creator</p>
+
+        <button class="btn" onclick="downloadPDF()">Download My PDF</button>
+    </div>
+
+    <div class="section">
+        <h1>💡 My Skills</h1>
+        <div class="skills">
+            <div class="card">HTML & CSS</div>
+            <div class="card">JavaScript</div>
+            <div class="card">Unity (Learning)</div>
+            <div class="card">Game Development</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h1>🔥 My Projects</h1>
+        <div class="projects">
+            <div class="card">Download Page Website</div>
+            <div class="card">Portfolio Website</div>
+            <div class="card">Future GTA Game 🚗</div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Zakariya | Built with Passion 💻🔥
+    </footer>
+
+    <script>
+        function downloadPDF() {
+            var link = "https://drive.google.com/uc?export=download&id=19QvXediN_218-EcMlCSou-Ey_Slwtxf8";
+            window.open(link, "_blank");
+        }
+    </script>
+
+</body>
+</html>            letter-spacing:5px;
             opacity:0;
             animation: zoomIn 2s ease forwards;
             text-shadow:0 0 20px #00ffcc,
