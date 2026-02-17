@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Zakariya | Developer</title>
+    <title>Zakariya | GTA Intro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -9,32 +9,137 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family: Arial, sans-serif;
+            font-family:Arial, sans-serif;
         }
 
         body{
-            background: linear-gradient(-45deg, #000000, #1a1a1a, #0f2027, #000000);
-            background-size: 400% 400%;
-            animation: bgAnimation 10s ease infinite;
+            background:black;
+            overflow:hidden;
             color:white;
+        }
+
+        /* Intro Screen */
+        .intro{
+            position:fixed;
+            width:100%;
+            height:100vh;
+            background:black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+            z-index:10;
+            animation: fadeOut 2s ease 6s forwards;
+        }
+
+        .logo{
+            font-size:50px;
+            letter-spacing:5px;
+            opacity:0;
+            animation: zoomIn 2s ease forwards;
+            text-shadow:0 0 20px #00ffcc,
+                        0 0 40px #00ffcc,
+                        0 0 60px #00ffff;
+        }
+
+        .sub{
+            margin-top:20px;
+            opacity:0;
+            animation: fadeIn 2s ease 2s forwards;
+            color:#00ffcc;
+        }
+
+        .enter-btn{
+            margin-top:40px;
+            padding:12px 25px;
+            border:none;
+            border-radius:30px;
+            background:#00ffcc;
+            color:black;
+            cursor:pointer;
+            font-size:16px;
+            opacity:0;
+            animation: fadeIn 2s ease 3s forwards;
+        }
+
+        @keyframes zoomIn{
+            from{ transform:scale(0.5); opacity:0; }
+            to{ transform:scale(1); opacity:1; }
+        }
+
+        @keyframes fadeIn{
+            to{ opacity:1; }
+        }
+
+        @keyframes fadeOut{
+            to{ opacity:0; visibility:hidden; }
+        }
+
+        /* Main Site */
+        .main{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            flex-direction:column;
             text-align:center;
         }
 
-        @keyframes bgAnimation{
-            0%{background-position:0% 50%;}
-            50%{background-position:100% 50%;}
-            100%{background-position:0% 50%;}
-        }
-
-        .container{
-            padding:50px 20px;
-        }
-
-        h1{
-            font-size:40px;
+        .main h1{
+            font-size:35px;
             color:#00ffcc;
             text-shadow:0 0 20px #00ffcc;
         }
+
+        .btn{
+            margin-top:20px;
+            padding:15px 30px;
+            border:none;
+            border-radius:30px;
+            background:#00ffcc;
+            color:black;
+            cursor:pointer;
+            font-size:18px;
+            box-shadow:0 0 20px #00ffcc;
+            transition:0.3s;
+        }
+
+        .btn:hover{
+            background:white;
+            transform:scale(1.1);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- GTA Style Intro -->
+    <div class="intro">
+        <div class="logo">ZAKARIYA</div>
+        <div class="sub">GTA STYLE DEVELOPER</div>
+        <button class="enter-btn" onclick="skipIntro()">ENTER</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <h1>Welcome to My GTA Portfolio 🚗</h1>
+        <button class="btn" onclick="downloadPDF()">Download My PDF</button>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            var link = "https://drive.google.com/uc?export=download&id=19QvXediN_218-EcMlCSou-Ey_Slwtxf8";
+            window.open(link, "_blank");
+        }
+
+        function skipIntro(){
+            document.querySelector(".intro").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>        }
 
         p{
             margin-top:10px;
