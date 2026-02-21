@@ -92,6 +92,25 @@
             padding:20px;
             opacity:0.6;
         }
+
+        /* Password Box */
+        .password-box{
+            margin-top:20px;
+            display:none;
+        }
+
+        input{
+            padding:10px;
+            border-radius:10px;
+            border:none;
+            width:250px;
+            text-align:center;
+        }
+
+        .error{
+            color:red;
+            margin-top:10px;
+        }
     </style>
 </head>
 
@@ -101,7 +120,15 @@
         <h1>Zakariya 🚀</h1>
         <p>Future GTA-Style Game Developer | Web Developer | Tech Creator</p>
 
-        <button class="btn" onclick="downloadPDF()">Download My PDF</button>
+        <button class="btn" onclick="showPasswordBox()">Download My PDF</button>
+
+        <div class="password-box" id="passwordBox">
+            <br>
+            <input type="password" id="userPassword" placeholder="Enter Password">
+            <br><br>
+            <button class="btn" onclick="checkPassword()">Submit</button>
+            <div class="error" id="errorMsg"></div>
+        </div>
     </div>
 
     <div class="section">
@@ -128,9 +155,22 @@
     </footer>
 
     <script>
-        function downloadPDF() {
-            var link = "https://drive.google.com/uc?export=download&id=19QvXediN_218-EcMlCSou-Ey_Slwtxf8
-            window.open(link, "_blank");
+        var correctPassword = "@Mukadam Zakariya 955";
+
+        function showPasswordBox(){
+            document.getElementById("passwordBox").style.display = "block";
+            document.getElementById("errorMsg").innerText = "";
+        }
+
+        function checkPassword(){
+            var enteredPassword = document.getElementById("userPassword").value;
+
+            if(enteredPassword === correctPassword){
+                var link = "https://drive.google.com/uc?export=download&id=19QvXediN_218-EcMlCSou-Ey_Slwtxf8";
+                window.open(link, "_blank");
+            } else {
+                document.getElementById("errorMsg").innerText = "❌ Wrong Password!";
+            }
         }
     </script>
 
